@@ -16,6 +16,7 @@
 
 # vscode_docker
 
-<img src="/uc-flow-node/vscode_docker_1.png" alt="" width="300" height="200">
+<img src="/uc-flow-node/images/vscode_docker_1.png" alt="" width="300" height="200">
+
 
 
