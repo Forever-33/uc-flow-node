@@ -16,13 +16,16 @@
 
 # vscode_docker
 ## Запуск контейнера в vscode
+---
 <img src="/images/vscode_docker_1.png" alt="vscode_docker_1" width="800">
 
 ## Просмотр файлов контейнера через terminal в vscode
+---
 <img src="/images/vscode_docker_2.png" alt="vscode_docker_2" width="800">
 
 # docker_terminal
 ## Просмотр файлов контейнера через стандартный terminal
+---
 <img src="/images/docker_terminal_1.png" alt="docker_terminal_1" width="800">
 
 ---
