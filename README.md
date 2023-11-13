@@ -16,7 +16,7 @@
 
 # vscode_docker
 
-<img src="/images/vscode_docker_1.png" alt="vscode_docker_1" width="300" height="200">
+<img src="/images/vscode_docker_1.png" alt="vscode_docker_1" width="800">
 
 
 
