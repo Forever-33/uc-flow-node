@@ -13,3 +13,9 @@
 7. Запустите Ngrok http на порту 9000. Сделайте его скриншот и добавьте в README.md
 
 Ответ:
+
+# vscode_docker
+
+<img src="/uc-flow-node/vscode_docker_1.png" alt="" width="300" height="200">
+
+
