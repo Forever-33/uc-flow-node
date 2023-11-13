@@ -15,25 +15,25 @@
 Ответ:
 
 # vscode_docker
-## 1
+## Запуск контейнера в vscode
 <img src="/images/vscode_docker_1.png" alt="vscode_docker_1" width="800">
 
-## 2
+## Просмотр файлов контейнера через terminal в vscode
 <img src="/images/vscode_docker_2.png" alt="vscode_docker_2" width="800">
 
 # docker_terminal
-## 1
+## Просмотр файлов контейнера через стандартный terminal
 <img src="/images/docker_terminal_1.png" alt="docker_terminal_1" width="800">
 
-## 2
+# --
 <img src="/images/docker_terminal_2.png" alt="docker_terminal_2" width="800">
 
-## 3
+# --
 <img src="/images/docker_terminal_3.png" alt="docker_terminal_3" width="800">
 
 # Запуск Ngrok
-## 1
+## --
 <img src="/images/ngrok_1.png" alt="ngrok_1" width="800">
 
-## 2
+## --
 <img src="/images/ngrok_2.png" alt="ngrok_2" width="800">
