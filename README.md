@@ -25,15 +25,15 @@
 ## Просмотр файлов контейнера через стандартный terminal
 <img src="/images/docker_terminal_1.png" alt="docker_terminal_1" width="800">
 
-# --
+# ---
 <img src="/images/docker_terminal_2.png" alt="docker_terminal_2" width="800">
 
-# --
+# ---
 <img src="/images/docker_terminal_3.png" alt="docker_terminal_3" width="800">
 
 # Запуск Ngrok
-## --
+## ---
 <img src="/images/ngrok_1.png" alt="ngrok_1" width="800">
 
-## --
+## ---
 <img src="/images/ngrok_2.png" alt="ngrok_2" width="800">
