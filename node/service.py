@@ -43,7 +43,69 @@ class NodeType(flow.NodeType):
             description='Return type description',
             required=True,
             default=False,
-        )
+        ),
+        Property(
+            displayName='Переключатель',
+            name='switch_field',
+            type=Property.Type.BOOLEAN,
+            placeholder='Switch placeholder',
+            description='Switch description',
+            required=True,
+            default=False,
+        ),
+        Property(
+            displayName='Значение 1',
+            name='dropdown_field_1',
+            type=Property.Type.OPTIONS,
+            options=[
+                {"name": "Значение 1", "value": "value1"},
+                {"name": "Значение 2", "value": "value2"},
+            ],
+            displayOptions={
+                'show': {'switch_field': [True]},
+            },
+        ),
+        Property(
+            displayName='Значение 2',
+            name='dropdown_field_2',
+            type=Property.Type.OPTIONS,
+            options=[
+                {"name": "Значение 1", "value": "value1"},
+                {"name": "Значение 2", "value": "value2"},
+            ],
+            displayOptions={
+                'show': {'switch_field': [True]},
+            },
+        ),
+        Property(
+            displayName='Поле для ввода почты',
+            name='email_field',
+            type=Property.Type.STRING,
+            placeholder='Email placeholder',
+            description='Email description',
+            displayOptions={
+                'show': {
+                    'switch_field': [True],
+                    'dropdown_field_1': ['value1'],
+                    'dropdown_field_2': ['value2'],
+                },
+            },
+        ),
+        Property(
+            displayName='Поле для ввода даты и времени',
+            name='datetime_field',
+            type=Property.Type.DATETIME,
+            placeholder='Datetime placeholder',
+            description='Datetime description',
+            displayOptions={
+                'show': {
+                    'switch_field': [True],
+                    'dropdown_field_1': ['value1'],
+                    'dropdown_field_2': ['value2'],
+                },
+            },
+        ),
+
     ]
 
 
@@ -55,23 +117,37 @@ class InfoView(info.Info):
 class ExecuteView(execute.Execute):
     async def post(self, json: NodeRunContext) -> NodeRunContext:
         try:
+            switch_field_value = json.node.data.properties['switch_field']
+            dropdown_field_1_value = json.node.data.properties.get('dropdown_field_1')
+            dropdown_field_2_value = json.node.data.properties.get('dropdown_field_2')
+            email_field_value = json.node.data.properties.get('email_field')
+            datetime_field_value = json.node.data.properties.get('datetime_field')
             text_value = json.node.data.properties['first_text_field']
             number_value = json.node.data.properties['first_number_field']
             return_type = json.node.data.properties['return_type']
+            
+            result_dict = {}
 
             try:
                 text_value = float(text_value)
             except ValueError:
                 raise ValueError("Нельзя перевести текст в число!")
 
-            result = number_value + text_value
+            numeric_result = number_value + text_value
 
             if return_type:
-                result = f'{int(result)}'
+                numeric_result = f'{int(numeric_result)}'
             else:
-                result = int(result)
+                numeric_result = int(numeric_result)
+            
+            if email_field_value is not None:
+                result_dict['email_result'] = email_field_value
+            if datetime_field_value is not None:
+                result_dict['datetime_result'] = datetime_field_value
 
-            await json.save_result({"result": result})
+            result_dict['numeric_result'] = numeric_result
+
+            await json.save_result(result_dict)
             json.state = RunState.complete
 
         except Exception as e:
