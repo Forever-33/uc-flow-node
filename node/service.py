@@ -10,7 +10,7 @@ from node.static.icon import ICON
 
 
 class NodeType(flow.NodeType):
-    id: str = 'd7ba194d-d757-431c-bf5d-023f42bdf121'
+    id: str = '7849c909-6132-40d1-b259-be2cf3155816121'
     type: flow.NodeType.Type = flow.NodeType.Type.action
     name: str = 'uc-flow-node'
     is_public: bool = False
