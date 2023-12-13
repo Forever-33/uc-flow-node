@@ -1,3 +1,4 @@
+
 from uc_flow_schemas import flow
 from uc_flow_schemas.flow import Property
 from node.static.icon import ICON
@@ -12,93 +13,123 @@ class NodeType(flow.NodeType):
     icon: str = ICON
     description: str = 'uc-flow-node service'
     properties: List[Property] = [
-        Property(
-            displayName='first_text_field',
-            name='first_text_field',
-            type=Property.Type.STRING,
-            placeholder='Foo placeholder',
-            description='Foo description',
-            required=True,
-            default='',
-        ),
-        Property(
-            displayName='first_number_field',
-            name='first_number_field',
-            type=Property.Type.NUMBER,
-            placeholder='Number placeholder',
-            description='Number description',
-            required=True,
-            default=0,
-        ),
-        Property(
-            displayName='number/text',
-            name='return_type',
-            type=Property.Type.BOOLEAN,
-            placeholder='Return type placeholder',
-            description='Return type description',
-            required=True,
-            default=False,
-        ),
-        Property(
-            displayName='Переключатель',
-            name='switch_field',
-            type=Property.Type.BOOLEAN,
-            placeholder='Switch placeholder',
-            description='Switch description',
-            required=True,
-            default=False,
-        ),
-        Property(
-            displayName='Значение 1',
-            name='dropdown_field_1',
+        Property(   
+            displayName='Action',
+            name='dropdown_action',
             type=Property.Type.OPTIONS,
             options=[
-                {"name": "Значение 1", "value": "value1"},
-                {"name": "Значение 2", "value": "value2"},
+                {"name": "Авторизация", "value": "value1"},
+                {"name": "Запрос", "value": "value2"},
             ],
-            displayOptions={
-                'show': {'switch_field': [True]},
-            },
         ),
         Property(
-            displayName='Значение 2',
-            name='dropdown_field_2',
+            displayName='Resource',
+            name='dropdown_resource',
             type=Property.Type.OPTIONS,
             options=[
-                {"name": "Значение 1", "value": "value1"},
-                {"name": "Значение 2", "value": "value2"},
+                {"name": "Customer", "value": "value3"},
             ],
-            displayOptions={
-                'show': {'switch_field': [True]},
-            },
-        ),
-        Property(
-            displayName='Поле для ввода почты',
-            name='email_field',
-            type=Property.Type.STRING,
-            placeholder='Email placeholder',
-            description='Email description',
             displayOptions={
                 'show': {
-                    'switch_field': [True],
-                    'dropdown_field_1': ['value1'],
-                    'dropdown_field_2': ['value2'],
+                    'dropdown_action': ['value2'],
                 },
             },
         ),
         Property(
-            displayName='Поле для ввода даты и времени',
-            name='datetime_field',
-            type=Property.Type.DATETIME,
-            placeholder='Datetime placeholder',
-            description='Datetime description',
+            displayName='token_api',
+            name='token_api',
+            type=Property.Type.STRING,
             displayOptions={
                 'show': {
-                    'switch_field': [True],
-                    'dropdown_field_1': ['value1'],
-                    'dropdown_field_2': ['value2'],
+                    'dropdown_resource': ['value3'],
                 },
             },
         ),
-
+        Property(
+            displayName='Operation',
+            name='dropdown_operation',
+            type=Property.Type.OPTIONS,
+            options=[
+                {"name": "Index", "value": "value4"},
+                {"name": "Create", "value": "value5"},
+                {"name": "Update", "value": "value6"},
+            ],
+            displayOptions={
+                'show': {
+                    'dropdown_resource': ['value3'],
+                },
+            },
+        ),
     ]
+    
+    credentials: List[flow.NodeType.Credential] = [
+        flow.NodeType.Credential(name="alfacrm_api_auth", required=True, contextKey="auth_token")
+    ]
+
+
+# from uc_flow_schemas import flow
+# from uc_flow_schemas.flow import Property
+# from node.static.icon import ICON
+# from typing import List
+
+# class NodeType(flow.NodeType):
+#     id: str = '7849c909-6132-40d1-b259-be2cf3155816121'
+#     type: flow.NodeType.Type = flow.NodeType.Type.action
+#     name: str = 'uc-flow-node'
+#     is_public: bool = False
+#     displayName: str = 'uc-flow-node'
+#     icon: str = ICON
+#     description: str = 'uc-flow-node service'
+#     properties: List[Property] = [
+#         Property(   
+#             displayName='Action',
+#             name='dropdown_action',
+#             type=Property.Type.OPTIONS,
+#             options=[
+#                 {"name": "Авторизация", "value": "value1"},
+#                 {"name": "Запрос", "value": "value2"},
+#             ],
+#         ),
+#         Property(
+#             displayName='Resource',
+#             name='dropdown_resource',
+#             type=Property.Type.OPTIONS,
+#             options=[
+#                 {"name": "Customer", "value": "value3"},
+#             ],
+#             displayOptions={
+#                 'show': {
+#                     'dropdown_action': ['value2'],
+#                 },
+#             },
+#         ),
+#         Property(
+#             displayName='token_api',
+#             name='token_api',
+#             type=Property.Type.STRING,
+#             displayOptions={
+#                 'show': {
+#                     'dropdown_resource': ['value3'],
+#                 },
+#             },
+#         ),
+#         Property(
+#             displayName='Operation',
+#             name='dropdown_operation',
+#             type=Property.Type.OPTIONS,
+#             options=[
+#                 {"name": "Index", "value": "value4"},
+#                 {"name": "Create", "value": "value5"},
+#                 {"name": "Update", "value": "value6"},
+#             ],
+#             displayOptions={
+#                 'show': {
+#                     'dropdown_resource': ['value3'],
+#                 },
+#             },
+#         ),
+#     ]
+    
+#     credentials: List[flow.NodeType.Credential] = [
+#         flow.NodeType.Credential(name="alfacrm_api_auth", required=True, contextKey="auth_token")
+#     ]
